@@ -135,8 +135,6 @@ A markers layer, eg points of  unmapped Assets, Hazards, and notes, as collectec
 2. Export > export Markers 
 3. Import the markers (a Geojson Feature collection) into Mapbox as TileSet and add layer to the map etc, (set as not-visable as would be a optional layer)
 
-
-
 ### Styling the map
 
 The map is styled within Mapbox.
@@ -144,8 +142,6 @@ The map is styled within Mapbox.
 IF the style is based on existing style (ie copied as new style within Mapbox), layer datasources need to be updated.
 
 Note that the sprite sheet has to be shared between all maps. However it can be modified, and exported and imported etc.
-
-
 
 ## Misc admin tasks
 
@@ -172,10 +168,30 @@ Note that the sprite sheet has to be shared between all maps. However it can be 
  - Set a  a new User node to /App/Users/ with UserUID as key and knickname (eg Dan_S) as value
  - Note that, if the User is also an EndUser / Client, using the Mapbox ClientMap then  Mapbox config is also under UserUID 
 
-### Photo management
+## Photo management
+### Upload photos proc
 
- - Uploading, downloading and managing photos (used in relatedData or as part of original mapData), is done via the gsUtil tool. see ([https://cloud.google.com/storage/docs/gsutil_install](https://cloud.google.com/storage/docs/gsutil_install)
- - 
+ - Resize photos to thumbnail (eg 320x240), using {See trello attached .exe}, at say 70% quality, (14000 photos x 30kB)
+
+
+ - Create fbStoragePhotosPath node in fb /Users/ , with path as value ie TowerHamlets/320x240/, if necessary
+ - create photos folder in FB storage eg using FIrebase Dashboard
+
+- open Powershell in working folder, holding the photos , and run:
+
+gsutil -m cp -r *.jpg gs://fir-realtime-db-24299.appspot.com/{FbPhotosPath}
+where  FbPhotosPath= eg TowerHamlets/320x240/
+
+ie 
+`gsutil -m cp *.jpg gs://fir-realtime-db-24299.appspot.com/TowerHamlets/320x240/`
+
+
+ #### webApp
+ - clicking on a Project button loads the project details having the button's ProjectId value
+ -- THe project details contains the photosPath
+
+#### EndUserMap
+ - FbPhotosPath is in userProfile (from /User/)
 
 ## Firebase Cloud functions
  - Google cloud functions are used to copy RelatedData, (and Marker) data entries, from a childMap to it's Parent Map.  (The Child map is used by the WebApp, usually split into smaller datsets eg split into wards. The parentMap (eg a whole borough) is used by the EndUserMap 
@@ -213,3 +229,6 @@ See Trello for coding pattern and technical configs etc
 ## Troubleshooting
 
 - WATCHOUT for non continuous array eg 1:,2: 3: 5 (leaving out element 4), in Firebase - this will result in one element with a a value of *empty* and break the code- 
+~~~
+
+~~~
