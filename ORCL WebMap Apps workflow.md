@@ -90,11 +90,10 @@ D:\dan-s\Documents\qgis\hounslow_2018_survey\archive_2018_hounslow)
 - Import / Drag in lines.shp, polyogns.shp and points.shp into QGIS
 - Import /Drag in sites polygon (1 polygon per site ie site footprint or site bounds rectangle)
 - import/drag in any optional ('selectable') layers (currently can only be a layer called 'vegetation')
-- saveAs above layers preferably as shp using wsg84 (EPSG4326), giving unique filenames indicating project and geometry (and crs) eg hounslow2018-lines and hide original layers in QGIS, and add to map
-- Zip up the shp files -  one  zip each for points, lines and polygons
-- For the SItes polygon - this may need to be saved as GeoJSON as will need to be imported as a dataset, as well as tileset, and the crs member be need to be removed from the GeoJSON file before uploading to Mapbox
-- Import new tilesets from the shp Asset (or update Tileset if appropriate)
-- Download a style json to use as template if no pre-prepared style json is available
+- SaveAs above layers as geojson (or shp), as EPSG4326 (wsg84), giving unique filenames indicating project and geometry (and crs) eg hounslow2018-lines and hide original layers in QGIS, and add to map
+- Note that For the SItes polygon / bounding box / site names - save as GeoJSON as will need to be imported as a dataset, as well as Tileset, and the crs member be need to be removed from the GeoJSON file before uploading to Mapbox
+- Import new tilesets from the shp Asset (or update Tileset if appropriate), or if updating a map, REPLACE the Tileset
+- (If creating a new map/style, download a style json, from another map to use as template if no pre-prepared style json is available) 
 - To copy a style - eg when a style with substituted tilesets are needed then download the style and do a  Global search and replace tileset datasources etc with:
 - - placeholderProjectName with projectName
 - - placeholder points with newpointsTileset
@@ -103,17 +102,20 @@ D:\dan-s\Documents\qgis\hounslow_2018_survey\archive_2018_hounslow)
 - Upload json style as new style
 
 ### Mapbox layers
+
 (See Hounslow and Richmond as examples)
 style: {projectname}layers eg hounslow-borough-parks
 
-**tilesets:** (This section needs updating  - does not currently make sense)
+**Tilesets:** (This section needs updating  - does not currently make sense)
 {projectname}points
-{projectname}-lines
+{projectname}-lines (could be used for several line layers)
 {projectname}-polygons
-{projectname}{childmaptype}
-eg hounslow-borough-ward-names
-Datasets: (not used?)
-childMap name list stored in FB project array
+
+{projectName}-sites , from siteBoundingBoxes poly shp used for Site Names layer and Site bounding boxes site polygon
+
+**Datasets:**
+
+{projectName}-sites-hash from sitesboundingboxe  poly shp (see below section of SiteNames - as this is used for search Box site names)
 
 ### Site Names for Search Box
  - Ensure that an attribute called Site or Site_Name exists and is populated with the park names (or whatever is to be used in 'search for site' search box) (If a new field needs to be created then, in QGIS: make copied layer editable; Open Attribute Table, open Field Calculator, Output field name: 'Site_Name' ; Expression:"Park_Name" (or whatever the field is currently called), output field length:0
@@ -124,6 +126,10 @@ childMap name list stored in FB project array
 
 Client specific config: 
 [link to specific config section](### Specific-client-map-config)
+
+
+
+
 
 
 
