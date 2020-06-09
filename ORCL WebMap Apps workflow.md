@@ -1,5 +1,7 @@
 
 
+
+
 # ORCL mapping WebApps workflow and overview
 
 
@@ -151,22 +153,23 @@ Note that the sprite sheet has to be shared between all maps. However it can be 
 
 ## Misc admin tasks
 
-#### Renewing SSL certificate for ClientMap
+#### Renewing SSL certificate for ClientMap 
+
+(updated 9June2020)
 
 - Needs to be done every three months
 
 - log into db godaddy account via provided link - then to cpanel and DNS page
+
 - (link: [godaddy link from David]
 
-- (following guide [https://www.youtube.com/watch?v=ioQ_L2fjRcs&t=257s](https://www.youtube.com/watch?v=ioQ_L2fjRcs&t=257s)
-- loginto sslforfree and generate ssl for:
-- - *.orcl.co.uk orcl.co.uk
-- Click verify manual domain (DNS) details
-- update txt record values for _acme-challenge
-- check propagation using [https://www.whatsmydns.net/#TXT/_acme-challenge.orcl.co.uk](https://www.whatsmydns.net/#TXT/_acme-challenge.orcl.co.uk)
-- in sslforfree click on generate new certificate
-- go to cpanel and renew(?) c
-- certificate, pasting in new key values etc, then use on new site (for subdomains, if necessary)
+- loginto [zerossl.com](https://app.zerossl.com/)/ and generate 90 day ssl for domains  orcl.co.uk and clientmap.co.uk . (Allowed up to 3 domains on free tier), using upload txt to well-known folder method (instant verification). 
+
+- In CPanel, update cert pasting new cert, pkey and bundle into the input boxes.
+
+  
+
+  
 
 ## Create a new User - ?? is this section needed?
  - Only a logged in User can Write RelatedData to the WebApp, view WebApp images, and access the clientMap.
