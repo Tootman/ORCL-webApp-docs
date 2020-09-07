@@ -155,15 +155,17 @@ Note that the sprite sheet has to be shared between all maps. However it can be 
 
 #### Renewing SSL certificate for ClientMap 
 
-(updated 9June2020)
+(updated 7Sept2020)
 
 - Needs to be done every three months
 
-- log into db godaddy account via provided link - then to cpanel and DNS page
+- log into db godaddy account via provided link - then to cpanel and thenSSL/TSL then manage SSL sites, > update cert 
 
 - (link: [godaddy link from David]
 
-- loginto [zerossl.com](https://app.zerossl.com/)/ and generate 90 day ssl for domains  orcl.co.uk and clientmap.co.uk . (Allowed up to 3 domains on free tier), using upload txt to well-known folder method (instant verification). 
+- Open Filezilla and open client.orcl.co.uk, orcl.co.uk
+
+- loginto [zerossl.com](https://app.zerossl.com/)/ and generate 90 day ssl for domains  orcl.co.uk and clientmap.co.uk . (Allowed up to 3 domains on free tier), varify using upload txt to well-known folder method (instant verification). 
 
 - In CPanel, update cert pasting new cert, pkey and bundle into the input boxes.
 
