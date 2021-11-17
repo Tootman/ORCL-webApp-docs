@@ -36,7 +36,7 @@ See Github issues
 
 #### Creating a new map and new user
 
-See [Workflows](https://github.com/Tootman/ORCL-webApp-docs) document
+See [Workflows](https://github.com/Tootman/ORCL-webApp-docs/blob/master/ORCL%20WebMap%20Apps%20workflow.md) document
 
 #### Styling the map
 
