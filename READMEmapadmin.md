@@ -71,16 +71,24 @@ See Github issues
 
 ## How it it built - technology stack
 
+- IMPORTANT - npm install only seems to work using node v11 (Use NVM)
 - Leaflet Mapping API
 - ReactJS v 16.3 (with Webpack via Create-react-App)
 - Firebase database for Cloud storage
 - Bootstrap 4
+- 
 
 ---
 
-- 
+## Installation
 
-### Example User Stories
+- Requires novde v11 (use nvm to select node ver) - come back to this issue
+- npm install from github repo
+- install firebase --force (Come back to this issue)
+
+
+
+## Example User Stories
 
 - As a GIS user / client end-user I want to be able to respond to a customer enquiry, (from my office computer), asking me where abouts in a park they can find their memorial bench (or memorial tree), by intuitively searching/inspecting an interactive WebMap
 
