@@ -28,7 +28,17 @@
 
 - todo: (include: how layers are handled - onClick and curser, Login flow chart - signing in , obtaining AccessToken, downloading map, etc)
 
+### Installation
 
+- Install using node v11 (using nvm), but need to check if this is the case 
+
+  `nvm install {repo}`
+
+- If npm install produces ERR (probably will), try 
+
+  ​	`npm install firebase --force`
+
+- Can revert back to latest node v after install (is this right?)
 
 ### Bugs, issues and features wish list
 
