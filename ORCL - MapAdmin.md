@@ -82,9 +82,9 @@ See Github issues
 
 ## Installation
 
-- Requires novde v11 (use nvm to select node ver) - come back to this issue
+- **IMPORATANT: install requires node v11** (use nvm to select node ver) - come back to this issue
 - npm install from github repo
-- install firebase --force (Come back to this issue)
+- need to install firebase manually 'install firebase --force' (Come back to this issue)
 
 
 
