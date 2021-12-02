@@ -10,9 +10,9 @@ A project consists of the following Mapbox entities:
 - Mapbox **Style** created or edited from within Mapbox Studio, providing symbology needed to render the mapdata.
 - Mapbox **dataset** containing a set of named polygons, showing the bounds of individual sites included in the project. The list of site names is used to populate site search (need to check if this is correct).
 
-### Create new user 
+### Create new Firebase user 
 
-- Log into Fb dashboard
+- Log into Fb (Firebase) dashboard
 - Fb> Authentication > Add User 
 - Provide an email (can be a fake email)
 - Set a password (passwords currently are managed on FB Admin only, by ORCL, - ie user cannot change/control password)
@@ -77,31 +77,25 @@ Name that appears on Welcome screen in ClientMap
 **writeRelatedData** : false,
  **zoom** : 11 mapbox map zoom level
 
-
+[](https://epsg.io/3857)
 
 ### Mapbox new project setup
 
 - Login to Mapbox 'Studio'
 
-- Create a new mapbox public key (make a note of this, as it will be needed for FBUser profile), and label it such that it can be associated with the project name.
--  This should be for ALL the data for all the sites in the project. Data can be uploaded from shp file in a zip. One zip per geometry type. (ie seperate zips for Points, lines and polygons.
-  If there are problems with the shp file import try using this procedure [convert shp using QGIS](https://github.com/Tootman/ORCL-webApp-docs/blob/master/ORCL%20WebMap%20Apps%20workflow.md#update-mapbox-mapdata-from-updated-shp-files). 
+- Create a new mapbox public key (make a note of this, as it will be needed for FBUser profile), and label it such that it can be associated with the project name. (If an existing client is creating a new project then could use their existing key).
+-  This should be for ALL the data for all the sites in the project. Data can be uploaded from shp file in a zip. One zip per geometry type. (ie separate zips for Points, lines and polygons. Mapbox uses [epsg.io/3857](https://epsg.io/3857).
+  If there are problems with the shp file, or if shp needs reprojection/coordinate conversion,  import using this procedure [convert shp using QGIS](https://github.com/Tootman/ORCL-webApp-docs/blob/master/ORCL%20WebMap%20Apps%20workflow.md#update-mapbox-mapdata-from-updated-shp-files). 
 
-### create a 
+#### Upload site names 
 
-#### Applying a style
-
-- Use an existing 
-
-#### Upload site names
+(optional)
 
 - Upload a **dataset** consisting of set of sites polygons with site name field
 
-### Notes
 
-FB = Firebase
 
-### Example setup
+## Example setup
 
 Using dataset GiGL_POPS_Shp.zip
 
@@ -136,7 +130,21 @@ Plan to replace this with partially automated webForm. Spec for form:
 
 
 
+### Creating Point symbol 
 
+Sprites in the sprite sheet used the Point symbols, can be created from scratch, or edit existing sprites.
+
+- Sprites can be created /edited in a vector graphics program such as [inkscape.org](https://inkscape.org/) or [Figma](https://www.figma.com/) and imported as svg, to replace an existing sprite in the sprite sheet.
+
+## Update existing Client map
+
+**NOTE limit of 30 uploads per month** on free Mapbox tier
+
+1. Login to Mapbox Studio
+2. Import shp file (as ZIP etc) as a new Tileset
+3. Navigate to the Client's style. The style name used can be found from inspecting the client's FB User Object, if necessary.
+4. Replace the layer sources as necessary.  Several layers may use the same source (eg fence, gate, wall, path all use  lines source )
+5. re-publish the map (It may take up to an hour for the server to refresh the served data )
 
 
 
