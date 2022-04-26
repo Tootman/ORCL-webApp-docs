@@ -6,7 +6,7 @@ A 'project' is a set of sites, with their site data, and related settings, that 
 
 A project consists of the following Mapbox entities:
 
-- mapbox **Tileset** containing the map data (uploaded  .shp, or geojson, to Mapbox studio )
+- Mapbox **Tileset** containing the map data (uploaded  .shp, or geojson, to Mapbox studio )
 - Mapbox **Style** created or edited from within Mapbox Studio, providing symbology needed to render the mapdata.
 - Mapbox **dataset** containing a set of named polygons, showing the bounds of individual sites included in the project. The list of site names is used to populate site search (need to check if this is correct).
 
