@@ -1,8 +1,6 @@
-# ConditionSurvey WebAApp
+# ConditionSurvey WebApp
 
 ---
-
-
 
 ### Description
 
